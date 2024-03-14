@@ -1,0 +1,30 @@
+{
+  "name": "Redscope2",
+  "description": "Redscope2",  
+  "version": "2.0",
+  
+  "manifest_version": 3,
+  
+  "background": {
+    "service_worker": "background-scripts/web_socket.js",
+    "type": "module"
+  },
+
+  "options_page": "options.html",
+  
+  "action": {
+    "default_icon": "icons/server_down.png"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["lib/rrweb.js", "content-scripts/dom-mutation/bundler.js"]
+    }
+  ],
+
+  "permissions": [
+    "storage",
+    "tabs"
+  ]
+}
